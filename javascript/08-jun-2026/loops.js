@@ -7,7 +7,7 @@ const data1 = {
 };
 
 for (let ans in data1) {
-  console.log(data1[ans]);
+  console.log(ans, data1[ans]);
 }
 
 //array value map/for loop/ for each
