@@ -5,13 +5,21 @@ const Task6Users = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(data => setUsers(data));
+    const fetchUsers = async () => {
+      try {
+        const res = await fetch('https://dummyjson.com/users');
+        const data = await res.json();
+        setUsers(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers();
   }, []);
 
   const filteredUsers = users.filter(user => 
-    user.name.toLowerCase().includes(searchTerm.toLowerCase())
+    user.firstName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -29,7 +37,7 @@ const Task6Users = () => {
       {filteredUsers.length > 0 ? (
         <ul>
           {filteredUsers.map(user => (
-            <li key={user.id}>{user.name}</li>
+            <li key={user.id}>{user.firstName}</li>
           ))}
         </ul>
       ) : (
