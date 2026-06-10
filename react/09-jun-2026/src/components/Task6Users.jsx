@@ -9,7 +9,7 @@ const Task6Users = () => {
       try {
         const res = await fetch('https://dummyjson.com/users');
         const data = await res.json();
-        setUsers(data);
+        setUsers(data.users);
       } catch (error) {
         console.error("Error fetching users:", error);
       }
@@ -31,6 +31,7 @@ const Task6Users = () => {
         placeholder="Search users..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        autoComplete="off"
       />
       <br /><br />
       
