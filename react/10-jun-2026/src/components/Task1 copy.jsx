@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Employee = () => {
   return (
-<>
-<form onSubmit={}></form></>  )
-}
+    <>
+      <form onSubmit={handleSubmit}></form>
+    </>
+  );
+};
 
 export default Employee;
